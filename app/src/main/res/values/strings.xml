@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">RecyclerView Example</string>
+    <string name="about">About</string>
+    <string name="settings">Settings</string>
+    <string name="description_about">Pulselive Challenge by Gonçalo Martins Ribeiro</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- DIALOG MESSAGES -->
+    <string name="dialog_network_description">You need a network connection to use this application. Please turn on mobile network or Wi-Fi in Settings.</string>
+    <string name="dialog_network_title">Unable to connect</string>
+
+    <!-- ERROR MESSAGES -->
+    <string name="error_api_title">Unable to connect to server</string>
+    <string name="error_api">Error! Can\'t connect to server. Please try again later</string>
+    <string name="error_internal_title">BAMM!! Fez-se o chocapic!</string>
+    <string name="error_internal">Oops! Something wrong occurred! Sorry for the inconvenience.</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

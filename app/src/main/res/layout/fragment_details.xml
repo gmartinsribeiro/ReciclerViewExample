@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gmartinsribeiro.recyclerviewapp.fragment.DetailsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="16sp"
+        android:textColor="@color/primary_dark_material_dark"
+        android:paddingTop="5dip"/>
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_alignParentLeft="true"
+        android:textSize="12sp"
+        android:textColor="@color/primary_dark_material_light"
+        android:paddingBottom="5dip"/>
+
+    <TextView
+        android:id="@+id/body"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subtitle"
+        android:textSize="12sp"
+        android:textColor="@color/material_blue_grey_800"
+        android:paddingBottom="5dip"/>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/body"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textSize="12sp"
+        android:textColor="@color/primary_dark_material_light"
+        android:paddingBottom="5dip"/>
+    </RelativeLayout>
+</FrameLayout>

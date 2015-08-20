@@ -1,8 +1,8 @@
 package com.gmartinsribeiro.recyclerviewapp.fragment;
 
+import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,7 +14,9 @@ import com.gmartinsribeiro.recyclerviewapp.R;
 import com.gmartinsribeiro.recyclerviewapp.adapter.ItemAdapter;
 import com.gmartinsribeiro.recyclerviewapp.entity.Item;
 import com.gmartinsribeiro.recyclerviewapp.exception.NetworkException;
-import com.gmartinsribeiro.recyclerviewapp.network.APIConsumer;
+import com.gmartinsribeiro.recyclerviewapp.network.APIClient;
+import com.gmartinsribeiro.recyclerviewapp.utility.Connectivity;
+import com.gmartinsribeiro.recyclerviewapp.utility.DialogUtils;
 
 import java.util.List;
 
@@ -36,6 +38,16 @@ public class ListFragment extends Fragment {
      */
     private ItemAdapter mAdapter;
 
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @return A new instance of fragment ListFragment.
+     */
+    public static ListFragment newInstance() {
+        return new ListFragment();
+    }
+
     public ListFragment() {
     }
 
@@ -51,9 +63,18 @@ public class ListFragment extends Fragment {
 
         mItemList = (RecyclerView) v.findViewById(R.id.list);
 
-        new DownloadDataTask().execute();
-
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //Check connection
+        if (!Connectivity.isConnected(getActivity())) {
+            DialogUtils.createNetErrorDialog(getActivity());
+        } else {
+            new DownloadDataTask().execute();
+        }
     }
 
     private class DownloadDataTask extends AsyncTask<String, Integer, List<Item>> {
@@ -62,13 +83,13 @@ public class ListFragment extends Fragment {
             try {
                 // Get data from server
                 //Usually I do this using Retrofit
-                items = APIConsumer.getListFromServer();
+                items = APIClient.getListFromServer();
             } catch (NetworkException e) {
-                e.printStackTrace();
-                //TODO Show toast
+                Log.e(TAG, e.getMessage());
+                DialogUtils.createApiErrorDialog(getActivity());
             }catch (Exception e) {
-                e.printStackTrace();
-                //TODO Show toast
+                Log.e(TAG, e.getMessage());
+                DialogUtils.createInternalErrorDialog(getActivity());
             }
             return items;
         }
@@ -95,5 +116,10 @@ public class ListFragment extends Fragment {
 
         // Attach layout manager to the RecyclerView
         mItemList.setLayoutManager(layoutManager);
+        mItemList.setHasFixedSize(true);
+    }
+
+    public interface OnFragmentInteractionListener {
+        public void onFragmentInteraction(String id);
     }
 }

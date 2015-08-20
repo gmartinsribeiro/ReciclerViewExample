@@ -11,6 +11,7 @@ public class Item {
     private String title;
     private String subtitle;
     private String body;
+    //Used date instead of String to add more complexity and flexibility to code
     private Date date;
 
     public Item() {
