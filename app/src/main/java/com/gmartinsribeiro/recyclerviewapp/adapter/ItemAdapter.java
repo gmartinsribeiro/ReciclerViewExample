@@ -40,9 +40,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         final Item item = mItems.get(i);
 
-        viewHolder.tt1.setText(item.getTitle());
-        viewHolder.tt2.setText(item.getSubtitle());
-        viewHolder.tt3.setText(DateUtils.parseDateToString(item.getDate()));
+        viewHolder.title.setText(item.getTitle());
+        viewHolder.subtitle.setText(item.getSubtitle());
+        viewHolder.date.setText(DateUtils.parseDateToString(item.getDate()));
 
         viewHolder.currentItem = item;
 
@@ -73,16 +73,16 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tt1;
-        public TextView tt2;
-        public TextView tt3;
+        public TextView title;
+        public TextView subtitle;
+        public TextView date;
         public Item currentItem;
 
         public ViewHolder(View v) {
             super(v);
-            tt1 = (TextView) v.findViewById(R.id.firstLine);
-            tt2 = (TextView) v.findViewById(R.id.secondLine);
-            tt3 = (TextView) v.findViewById(R.id.thirdLine);
+            title = (TextView) v.findViewById(R.id.title);
+            subtitle = (TextView) v.findViewById(R.id.subtitle);
+            date = (TextView) v.findViewById(R.id.date);
         }
     }
 

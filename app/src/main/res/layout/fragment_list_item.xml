@@ -4,34 +4,34 @@
     android:padding="6dip" >
 
     <TextView
-        android:id="@+id/firstLine"
+        android:id="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:textSize="16sp"
+        android:textSize="@dimen/title_text_size"
         android:textColor="@color/primary_dark_material_dark"
-        android:paddingTop="5dip"/>
+        android:paddingTop="@dimen/padding_bottom_5"/>
 
     <TextView
-        android:id="@+id/secondLine"
+        android:id="@+id/subtitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/firstLine"
+        android:layout_below="@+id/title"
         android:layout_alignParentLeft="true"
-        android:textSize="12sp"
+        android:textSize="@dimen/subtitle_text_size"
         android:textColor="@color/primary_dark_material_light"
-        android:paddingBottom="5dip"/>
+        android:paddingBottom="@dimen/padding_bottom_5"/>
 
     <TextView
-        android:id="@+id/thirdLine"
+        android:id="@+id/date"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/secondLine"
+        android:layout_below="@+id/subtitle"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:textSize="12sp"
+        android:textSize="@dimen/date_text_size"
         android:textColor="@color/primary_dark_material_light"
-        android:paddingBottom="5dip"/>
+        android:paddingBottom="@dimen/padding_bottom_5"/>
 
 </RelativeLayout> 
